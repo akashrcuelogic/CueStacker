@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TestDemo;
+using CueStacker.Network.APIManagers;
 
 using Xamarin.Forms;
 
@@ -15,6 +17,18 @@ namespace CueStacker
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
+
+            GetStackIds();
+
+        }
+
+        void GetStackIds() 
+        {
+            UsersAPI userAPI = new UsersAPI();
+            userAPI.GetStackUserIds((stackIds, error) =>
+            {
+                Console.WriteLine(stackIds);
+            });
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
