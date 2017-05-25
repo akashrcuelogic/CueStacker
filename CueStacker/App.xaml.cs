@@ -43,10 +43,10 @@ namespace CueStacker
         {
             Current.MainPage = new TabbedPage
             {
-                Children = {
+				Children = {
                     new NavigationPage(new ItemsPage())
                     {
-                        Title = "Browse",
+                        Title = "Leaderboard",
                         Icon = Device.OnPlatform("tab_feed.png", null, null)
                     },
                     new NavigationPage(new AboutPage())
