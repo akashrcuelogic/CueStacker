@@ -47,6 +47,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Network\Models\NetworkRequestModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\UsersAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\UserIdList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\UserSODetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\UserDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\BadgeCounts.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
