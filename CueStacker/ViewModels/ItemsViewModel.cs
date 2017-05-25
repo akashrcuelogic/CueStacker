@@ -13,7 +13,7 @@ namespace CueStacker
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Cue Stackers";
             Items = new ObservableRangeCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
