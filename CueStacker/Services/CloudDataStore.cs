@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using CueStacker.Network.Models.Response;
 
 using Newtonsoft.Json;
 using Plugin.Connectivity;
@@ -59,6 +60,7 @@ namespace CueStacker
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
+            /*
             if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
                 return false;
 
@@ -67,8 +69,8 @@ namespace CueStacker
             var byteContent = new ByteArrayContent(buffer);
 
             var response = await client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
-
-            return response.IsSuccessStatusCode ? true : false;
+*/
+            return false;//response.IsSuccessStatusCode ? true : false;
         }
 
         public async Task<bool> DeleteItemAsync(string id)
