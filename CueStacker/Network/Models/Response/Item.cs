@@ -1,9 +1,9 @@
 ﻿using System;
 namespace CueStacker.Network.Models.Response
 {
-    public class UserInfo
+    public class Item
     {
-        public UserInfo()
+        public Item()
         {
         }
 

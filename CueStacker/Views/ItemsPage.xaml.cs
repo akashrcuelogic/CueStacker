@@ -27,7 +27,11 @@ namespace CueStacker
             UsersAPI userAPI = new UsersAPI();
             userAPI.GetStackUserIds((stackIds, error) =>
             {
-                Console.WriteLine(stackIds);
+                userAPI.getSODetails(stackIds, (allUserDetails, soError) =>
+                {
+                    //Todo:Display Data On List Here.
+                    Console.WriteLine(allUserDetails);
+                });
             });
         }
 
