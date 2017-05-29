@@ -15,9 +15,20 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                                 <Image x:Name="imageUser" Source="{Binding profile_image}" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" Margin="20,10,10,10" BackgroundColor="Silver"/>
-                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="20,0,20,0">
-                                    <Label Text="{Binding display_name}" TextColor="#f35e20" FontSize="14" />
-                                    <Label Text="{Binding reputation}" FontSize="12" HorizontalOptions="StartAndExpand" TextColor="#503026" />
+                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="10,0,0,0">
+                                    <Label Text="{Binding display_name}" TextColor="#f35e20" FontSize="16" />
+                                    <Label Text="{Binding reputation, StringFormat='Reputations: {0}'}" FontSize="14" HorizontalOptions="StartAndExpand" TextColor="#503026" />
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="0,0,0,0">
+                                        <Label Text="●" TextColor="#FFCD00" FontSize="18" />
+                                        <Label Text="{Binding badge_counts.gold}" TextColor="#503026" FontSize="14"  Margin="0,3,10,0"/>
+
+                                        <Label Text="●" TextColor="#B4B9BE" FontSize="18" />
+                                        <Label Text="{Binding badge_counts.silver}" TextColor="#503026" FontSize="14" Margin="0,3,10,0"/>
+
+                                        <Label Text="●" TextColor="#F4A783" FontSize="18" />
+                                        <Label Text="{Binding badge_counts.bronze}" TextColor="#503026" FontSize="14" Margin="0,3,10,0"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
