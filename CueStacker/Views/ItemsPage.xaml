@@ -4,7 +4,7 @@
     x:Class="CueStacker.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+            <ListView x:Name="ItemsListView" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -24,8 +24,8 @@
                                    </controls:CircleImage.HeightRequest>
                                 </controls:CircleImage>
                                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="20,0,20,0">
-                                    <Label Text="{Binding Text}" TextColor="#f35e20" FontSize="14" />
-                                    <Label Text="{Binding Description}" FontSize="12" HorizontalOptions="EndAndExpand" TextColor="#503026" />
+                                    <Label Text="{Binding display_name}" TextColor="#f35e20" FontSize="14" />
+                                    <Label Text="{Binding reputation}" FontSize="12" HorizontalOptions="EndAndExpand" TextColor="#503026" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

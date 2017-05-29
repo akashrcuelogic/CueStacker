@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using CueStacker.Network.Models.Response;
 
 namespace CueStacker
 {

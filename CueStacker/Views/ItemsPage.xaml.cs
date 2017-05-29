@@ -37,20 +37,27 @@ namespace CueStacker
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            /*
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
             
             // Manually deselect item
             ItemsListView.SelectedItem = null;
+            */
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
+            if (viewModel.Items.Count == 0)            
                 viewModel.LoadItemsCommand.Execute(null);
+
+            viewModel.ItemsCallBack = (items) => {
+                ItemsListView.ItemsSource = items;                  
+            };
+
         }
     }
 }
