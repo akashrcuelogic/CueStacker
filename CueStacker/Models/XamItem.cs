@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace CueStacker
 {
-    public class Item : ObservableObject
+    public class XamItem : ObservableObject
     {
         string id = string.Empty;
 

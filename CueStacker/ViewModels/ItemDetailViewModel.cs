@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CueStacker.Network.Models.Response;
+
 
 using Xamarin.Forms;
 
@@ -13,7 +15,7 @@ namespace CueStacker
         public Item Item { get; set; }
         public ItemDetailViewModel(Item item = null)
         {
-            Title = item.Text;
+            //Title = item.Text;
             Item = item;
         }
 
