@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -56,15 +58,28 @@ namespace TestDemo
 			var uri = new Uri(url);
 
 			HttpResponseMessage response = null;
-			client = new HttpClient();
+
+			HttpClientHandler handler = new HttpClientHandler()
+			{
+				AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+			};
+
+
+            client = new HttpClient(handler);
 			client.MaxResponseContentBufferSize = 2560000;
-			client.DefaultRequestHeaders.Add("user-key","64d1b8c4c768ac50faa034a333f6e9d1");
+
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+
 			response = await client.GetAsync(uri);
-			var contentBody = await response.Content.ReadAsStringAsync();
+
+            var contentBody = await response.Content.ReadAsStreamAsync();
 
 			APIResult apiResult = new APIResult();
 			if (response.IsSuccessStatusCode) {
-				apiResult.ResponseJSON = contentBody;
+                byte[] bytes = ((System.IO.MemoryStream)contentBody).ToArray();
+
+                apiResult.ResponseJSON = System.Text.Encoding.UTF8.GetString(bytes);
 			}
 			else {
 				apiResult.Error = new GPError("There was a problem with your request");

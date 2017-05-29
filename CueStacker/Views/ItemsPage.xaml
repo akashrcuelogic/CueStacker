@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CueStacker.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+    x:Class="CueStacker.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
@@ -7,7 +9,20 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                                <Image x:Name="imageUser" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" Margin="20,10,10,10" BackgroundColor="Silver"/>
+                                <controls:CircleImage Aspect="AspectFill" BackgroundColor="Silver" Margin="20, 10, 10, 10">
+                                  <controls:CircleImage.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                      iOS="55"
+                                      Android="55"
+                                      WinPhone="75"/>
+                                   </controls:CircleImage.WidthRequest>
+                                <controls:CircleImage.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                      iOS="55"
+                                      Android="55"
+                                      WinPhone="75"/>
+                                   </controls:CircleImage.HeightRequest>
+                                </controls:CircleImage>
                                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="20,0,20,0">
                                     <Label Text="{Binding Text}" TextColor="#f35e20" FontSize="14" />
                                     <Label Text="{Binding Description}" FontSize="12" HorizontalOptions="EndAndExpand" TextColor="#503026" />

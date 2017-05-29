@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net.Http;
+using System.Text;
+
 namespace TestDemo
 {
 	public class APIResult
@@ -20,8 +23,9 @@ namespace TestDemo
 
 			set
 			{
-				responseJSON = value;
-			}
+                responseJSON = value;
+
+    		}
 		}
 
 
