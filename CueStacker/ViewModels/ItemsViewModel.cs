@@ -46,10 +46,28 @@ namespace CueStacker
 				{
 					userAPI.getSODetails(stackIds, (allUserDetails, soError) =>
 					{
-                        //Todo:Display Data On List Here.
-                        //Console.WriteLine(allUserDetails);
-                        Items = allUserDetails;
-                        ItemsCallBack(allUserDetails);
+                        if (soError != null) 
+                        {
+							//Error
+							MessagingCenter.Send(new MessagingCenterAlert
+							{
+								Title = "Error",
+                                Message = soError.Message,
+								Cancel = "OK"
+							}, "message");
+                            ItemsCallBack(null);
+                        } else if (allUserDetails.Count == 0) {
+							MessagingCenter.Send(new MessagingCenterAlert
+							{
+								Title = "Error",
+								Message = "No data available.",
+								Cancel = "OK"
+							}, "message");
+                            ItemsCallBack(null);
+                        } else {
+							Items = allUserDetails;
+							ItemsCallBack(allUserDetails);
+                        }
 					});
 				});
 
