@@ -5,35 +5,28 @@ using TestDemo;
 using CueStacker.Network.APIManagers;
 
 using Xamarin.Forms;
+using System.Threading;
 
 namespace CueStacker
 {
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-
+        public static bool first;
         public ItemsPage()
         {
+
+#if __IOS__
+            first = false;
+#else
+            first = true;
+#endif
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
 
-            GetStackIds();
-
         }
 
-        void GetStackIds() 
-        {
-            UsersAPI userAPI = new UsersAPI();
-            userAPI.GetStackUserIds((stackIds, error) =>
-            {
-                userAPI.getSODetails(stackIds, (allUserDetails, soError) =>
-                {
-                    //Todo:Display Data On List Here.
-                    Console.WriteLine(allUserDetails);
-                });
-            });
-        }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
@@ -46,12 +39,46 @@ namespace CueStacker
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)            
+            if (!first)
+            {
+
+
+
+
+                if (!NetworkReachabilityManager.isInternetAvailable())
+                {
+                    DisplayAlert("Cue Stackers", "Internet connection not available.", "Ok");
+                    LblNoData.Text = "Internet connection not available.";
+                    return;
+                }
+                LblNoData.IsVisible = false;
+
                 viewModel.LoadItemsCommand.Execute(null);
 
-            viewModel.ItemsCallBack = (items) => {
-                ItemsListView.ItemsSource = items;                  
-            };
+                LoadingIndicator.IsRunning = true;
+                LoadingIndicator.IsVisible = true;
+                //ItemsListView.SeparatorVisibility = SeparatorVisibility.None;
+
+                viewModel.ItemsCallBack = (items) =>
+                {
+                    if (items != null)
+                    {
+                        ItemsListView.SeparatorVisibility = SeparatorVisibility.Default;
+                        LblNoData.IsVisible = false;
+                        ItemsListView.ItemsSource = items;
+                    }
+                    else
+                    {
+                        LblNoData.IsVisible = true;
+                        LblNoData.Text = "Data not available.";
+                        DisplayAlert("Cue Stackers", "Data not available", "Ok");
+                    }
+                    LoadingIndicator.IsRunning = false;
+                    LoadingIndicator.IsVisible = false;
+
+                };
+            }
+            first = false;
 
         }
     }

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CueStacker.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="ItemsListView" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+        <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">            
+
+            <ListView
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=0}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"
+                x:Name="ItemsListView" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" 
+                IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected"
+                SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -28,6 +35,19 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+
+            <ActivityIndicator 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0,Constant=0}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0,Constant=0}"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.8,Constant=0}"
+                x:Name="LoadingIndicator" Color="Black" IsRunning="true" VerticalOptions="CenterAndExpand" />
+            <Label 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0,Constant=0}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.8,Constant=0}"
+                Text="Data not available." x:Name="LblNoData" VerticalOptions="Center" HorizontalOptions="Center" />
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
