@@ -7,10 +7,10 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                                <Image x:Name="imageUser" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" Margin="20,10,10,10" BackgroundColor="Silver"/>
+                                <Image x:Name="imageUser" Source="{Binding profile_image}" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" Margin="20,10,10,10" BackgroundColor="Silver"/>
                                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="20,0,20,0">
                                     <Label Text="{Binding display_name}" TextColor="#f35e20" FontSize="14" />
-                                    <Label Text="{Binding reputation}" FontSize="12" HorizontalOptions="EndAndExpand" TextColor="#503026" />
+                                    <Label Text="{Binding reputation}" FontSize="12" HorizontalOptions="StartAndExpand" TextColor="#503026" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
