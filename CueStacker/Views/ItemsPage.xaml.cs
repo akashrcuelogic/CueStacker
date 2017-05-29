@@ -37,14 +37,9 @@ namespace CueStacker
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            /*
-            var item = args.SelectedItem as Item;
-            if (item == null)
-                return;
-            
             // Manually deselect item
             ItemsListView.SelectedItem = null;
-            */
+
         }
 
         protected override void OnAppearing()
