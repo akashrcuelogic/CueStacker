@@ -133,6 +133,18 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_57.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_114.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_launcher_180_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Splash.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\Splash.imageset\splash_screen-1.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Splash.imageset\splash_screen-2.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Splash.imageset\splash_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile_generic.png" />
@@ -149,6 +161,7 @@
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <BundleResource Include="Resources\splash_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

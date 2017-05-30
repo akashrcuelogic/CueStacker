@@ -41,10 +41,6 @@ namespace CueStacker
 
             if (!first)
             {
-
-
-
-
                 if (!NetworkReachabilityManager.isInternetAvailable())
                 {
                     DisplayAlert("Cue Stackers", "Internet connection not available.", "Ok");
@@ -57,7 +53,6 @@ namespace CueStacker
 
                 LoadingIndicator.IsRunning = true;
                 LoadingIndicator.IsVisible = true;
-                //ItemsListView.SeparatorVisibility = SeparatorVisibility.None;
 
                 viewModel.ItemsCallBack = (items) =>
                 {
