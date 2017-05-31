@@ -45,6 +45,8 @@ namespace CueStacker
                 {
                     DisplayAlert("Cue Stackers", "Internet connection not available.", "Ok");
                     LblNoData.Text = "Internet connection not available.";
+					LoadingIndicator.IsRunning = false;
+					LoadingIndicator.IsVisible = false;
                     return;
                 }
                 LblNoData.IsVisible = false;
@@ -58,13 +60,15 @@ namespace CueStacker
                 {
                     if (items != null)
                     {
+                        ItemsListView.IsVisible = true;
                         ItemsListView.SeparatorVisibility = SeparatorVisibility.Default;
                         LblNoData.IsVisible = false;
                         ItemsListView.ItemsSource = items;
                     }
                     else
                     {
-                        LblNoData.IsVisible = true;
+                        ItemsListView.IsVisible = false;
+						LblNoData.IsVisible = true;
                         LblNoData.Text = "Data not available.";
                         DisplayAlert("Cue Stackers", "Data not available", "Ok");
                     }

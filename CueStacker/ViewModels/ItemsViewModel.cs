@@ -5,6 +5,7 @@ using CueStacker.Network.APIManagers;
 using Xamarin.Forms;
 using CueStacker.Network.Models.Response;
 using System.Collections.Generic;
+using TestDemo;
 
 namespace CueStacker
 {
@@ -24,7 +25,13 @@ namespace CueStacker
 
         async Task ExecuteLoadItemsCommand()
         {
-            if (IsBusy)
+
+            if (!NetworkReachabilityManager.isInternetAvailable()) {
+				ItemsCallBack(null);
+				return;
+            }
+
+			if (IsBusy)
                 return;
 
             IsBusy = true;
