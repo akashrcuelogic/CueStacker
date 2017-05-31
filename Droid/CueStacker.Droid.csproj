@@ -143,11 +143,12 @@
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\splash_screen.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\splash_screen.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\splash_screen.png" />
     <AndroidResource Include="Resources\drawable-hdpi\splash_screen.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
